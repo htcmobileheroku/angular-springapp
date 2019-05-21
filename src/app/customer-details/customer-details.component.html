@@ -1,0 +1,38 @@
+
+  <table>
+    <thead>
+      <tr>
+        <th><label>Name: </label></th>
+        <th><label>Age: </label></th>
+        <th><label>Active: </label></th>
+        <th><label>Manage: </label></th>
+        <th><label>Delete: </label></th>
+        <th><label>Update: </label></th>
+      </tr>
+    </thead>
+  </table>
+  <div *ngIf="customer">
+  <table>
+      <tbody>
+          <tr>
+            <td>{{customer.name}}</td>
+          </tr>
+          <tr>
+              <td>{{customer.age}}</td>
+            </tr>
+            <tr>
+                
+                <td><span class="button is-small btn-primary" *ngIf='customer.active' (click)='updateActive(false)'>Inactive</span>
+    
+                  <span class="button is-small btn-primary" *ngIf='!customer.active' (click)='updateActive(true)'>Active</span></td>
+              </tr>
+              <tr>
+                  <td>{{customer.active}}</td>
+                </tr>
+                <tr>
+                    <td><span class="button is-small btn-danger" (click)='deleteCustomer()'>Delete</span></td>
+                  </tr>
+        </tbody>
+  </table>
+  <hr/>
+</div>

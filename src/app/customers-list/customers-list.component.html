@@ -1,0 +1,29 @@
+<h1>Customers</h1>
+    <table style="    border: 1px solid #3c2d2d;
+    width: 100%;">
+        <thead style="background: #ddd;">
+          <tr>
+            <th><label>Name</label></th>
+            <th><label>Age</label></th>
+            <th><label>Status</label></th>
+            <th><label>Delete</label></th>
+            <th><label>Update</label></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let customer of customers | async">
+            <td>{{customer.name}}</td>
+              <td>{{customer.age}}</td>
+                
+                <td><span style="cursor:pointer;" class="button is-small btn-primary" *ngIf='customer.active' (click)='updateActive(false, customer)'>Make Inactive</span>
+    
+                  <span style="cursor:pointer;" class="button is-small btn-primary" *ngIf='!customer.active' (click)='updateActive(true, customer)'>Make Active</span></td>
+                    <td><span class="button is-small btn-danger" style="cursor:pointer;" (click)='deleteCustomer(customer)'>Delete</span></td>
+                    <td><span style="cursor:pointer;" (click)='loadCustomer(customer)'>Update</span></td>
+                  </tr>
+        </tbody>
+      </table>
+
+<div style="margin-top:10px;">
+  <button type="button" class="button btn-danger" (click)='deleteCustomers()'>Delete All</button>
+</div>
